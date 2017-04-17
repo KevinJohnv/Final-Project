@@ -26,6 +26,10 @@ public class Deck {
         return deckName;
     }
 
+    public ArrayList<Integer> returnDeck(){
+        return myDeck;
+    }
+
     public Integer numberOfCards(){
         return myDeck.size();
     }

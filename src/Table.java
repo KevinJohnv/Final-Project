@@ -15,48 +15,60 @@ public class Table {
         tablePile.removeAll(tablePile);
     }
 
-    public Integer getTablePoints(){
-        int table = 0;
-        if (size()<=2){
+    public Integer calcTablePoints(){
+       /*Each (11)J, (12)Q, (13)K, (10)10 . . . 1 point
+        Each (1)ace . . . 1 point
+        Club (41)2 . . . 2 points
+        Diamond (36)10 . . . 3 points
+        Majority of cards . . . 3 points
+        Each pişti . . . 10 points
+        Each J pişti . . . 20 points*/
+
+       /* ASK TEACHER ABOUT RULES*/
+
+       int tableScore = 0;
+        if (tablePile.size()==2){
             if(tablePile.get(tablePile.size()-1)%13 == 11 && tablePile.get(tablePile.size()-2)%13 == 11){
                 System.out.println("JACK PISHTI!");
-                table = table+20;
+                tableScore = tableScore+20;
             } else if (tablePile.get(tablePile.size()-1)%13  == tablePile.get(tablePile.size()-2)%13 ){
                 System.out.println("PISHTI");
-                table = table+10;
+                tableScore = tableScore+10;
             }
         }
 
 
         int cardCount = 0;
-        while (cardCount > size()){
-                if(tablePile.get(cardCount) == 11||tablePile.get(cardCount) == 12||tablePile.get(cardCount) ==13){
-                    table++;
-                    cardCount++;
-                } else if(tablePile.get(cardCount) == 36|| tablePile.get(cardCount) == 41){
-                    table++;
-                    cardCount++;
+        while (cardCount < tablePile.size()){
+            if(tablePile.get(cardCount) == 36){
+                tableScore = tableScore+3;
+            }else if(tablePile.get(cardCount) == 41){
+                tableScore = tableScore+2;
+            }else if((tablePile.get(cardCount))%13 == 1|| (tablePile.get(cardCount))%13 == 10||
+                    (tablePile.get(cardCount))%13 == 11||(tablePile.get(cardCount))%13 == 12||(tablePile.get(cardCount))%13 ==0){
+                    tableScore++;
                 }
-
+                cardCount++;
         }
 
-        return table;
+        return tableScore;
     }
 
     public boolean win(){
-        if (tablePile.get(tablePile.size()-1)%13 == tablePile.get(tablePile.size()-2)%13 || tablePile.get(tablePile.size()-1)%13 == 11) {
-            return true;
-        } else {return false;}
-    }
+        if(tablePile.size()>1) {
+            System.out.println(tablePile.size());
+            if (tablePile.get(tablePile.size() - 1) % 13 == tablePile.get(tablePile.size() - 2) % 13 || tablePile.get(tablePile.size() - 1) % 13 == 11) {
+                return true;
+            } else {
+                return false;
+            }
 
-
-
-    public int size(){
-        return tablePile.size();
+        }else{ return false;}
     }
 
     public void addCardToTable(Integer newCard){
         tablePile.add(newCard);
+
     }
 
 

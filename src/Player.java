@@ -33,7 +33,7 @@ public class Player {
         playerDeck = givenDeck;
     }
 
-    public void setNumOfCards(Integer numOfCards){
+    public void setNumOfCardsInPile(Integer numOfCards){
         // This counts the amount of cards the player has won
         count = count + numOfCards;
     }
