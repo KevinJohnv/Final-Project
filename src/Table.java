@@ -36,7 +36,7 @@ public class Table {
                 tableScore = tableScore+10;
             }
         }
-
+        
 
         int cardCount = 0;
         while (cardCount < tablePile.size()){
