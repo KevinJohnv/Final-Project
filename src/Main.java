@@ -43,11 +43,12 @@ public class Main {
     public static Player player;
     public static Computer computer;
     public static Table table;
+    public static Deck deck;
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
         // Initalize the deck and shuffle
-        Deck deck = new Deck();
+        deck = new Deck();
         deck.shuffle();
 
         //Deal the deck to the player
