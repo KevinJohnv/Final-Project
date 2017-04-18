@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-/*JohnV*/
+/*Kevin John*/
 /**
  * Created by iSeeU on 4/6/17.
  */
