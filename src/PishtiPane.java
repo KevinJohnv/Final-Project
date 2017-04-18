@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import java.util.Random;
@@ -22,18 +23,14 @@ public class PishtiPane extends BorderPane {
 
     public PishtiPane() {
 
-        for (Integer n: Main.player.getPlayerDeck()) {
-            playerHand.getChildren().add(new ImageView(new Image("card/" + n + ".png")));
-        }
+        drawHand(Main.player);
+        drawHand(Main.computer);
 
-        Text deckSize = new Text();
+        Text deckSize = new Text(Integer.toString(Main.deck.numberOfCards()));
+        deckSize.setFont(new Font(45));
 
         remainingDeck.getChildren().add(new ImageView(new Image("card/b2fv.png")));
         remainingDeck.getChildren().add(deckSize);
-
-        for (int i = 0; i < Main.computer.size(); i++) {
-            compHand.getChildren().add(new ImageView(new Image("card/b2fv.png")));
-        }
 
 
 
@@ -67,5 +64,18 @@ public class PishtiPane extends BorderPane {
     public void rotate(Node n) {
         Random rdm = new Random();
         n.setRotate(rdm.nextInt(90) - rdm.nextInt(90));
+    }
+
+    public void drawHand(Player p) {
+        if (p instanceof Computer) {
+            for (int i = 0; i < Main.computer.size(); i++) {
+                compHand.getChildren().add(new ImageView(new Image("card/b2fv.png")));
+            }
+        }
+        else {
+            for (Integer n : Main.player.getPlayerDeck()) {
+                playerHand.getChildren().add(new ImageView(new Image("card/" + n + ".png")));
+            }
+        }
     }
 }
