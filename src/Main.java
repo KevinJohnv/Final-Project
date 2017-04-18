@@ -40,6 +40,9 @@ import java.util.Scanner;
 *
 */
 public class Main {
+    public static Player player;
+    public static Computer computer;
+    public static Table table;
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -50,17 +53,17 @@ public class Main {
         //Deal the deck to the player
         ArrayList<Integer> playerDeck = new ArrayList<Integer>();
         deck.deal(playerDeck);
-        Player player = new Player(playerDeck);
+        player = new Player(playerDeck);
 
         //Deal the deck to the computer
         ArrayList<Integer> compDeck = new ArrayList<Integer>();
         deck.deal(compDeck);
-        Computer computer = new Computer(compDeck);
+        computer = new Computer(compDeck);
 
         //Deal the deck to table
         ArrayList<Integer> tableDeck = new ArrayList<Integer>();
         deck.deal(tableDeck);
-        Table table = new Table(tableDeck);
+        table = new Table(tableDeck);
 
 
         boolean rerun = true;
@@ -108,6 +111,10 @@ public class Main {
         }
 
 
+    }
+
+    public Player getPlayer(){
+        return player;
     }
 
     public static boolean playerTurn(ArrayList<Integer> playerDeck, Player player, Table table) {
