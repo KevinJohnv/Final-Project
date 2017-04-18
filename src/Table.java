@@ -15,6 +15,10 @@ public class Table {
         tablePile.removeAll(tablePile);
     }
 
+    public ArrayList<Integer> getTablePile(){
+        return tablePile;
+    }
+
     public Integer calcTablePoints(){
        /*Each (11)J, (12)Q, (13)K, (10)10 . . . 1 point
         Each (1)ace . . . 1 point
