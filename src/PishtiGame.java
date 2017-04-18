@@ -12,8 +12,8 @@ public class PishtiGame extends Application {
         PishtiPane pane = new PishtiPane();
 
         // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
-        /*if(Main.player.getSize() == 0){
-            Main.giveCards(Main.,deck,player);
+        (Main.player.getSize() == 0){
+            Main.giveCards(Main.player,Main.deck,player);
             player.setPlayerDeck(playerDeck);
         }
 
@@ -24,7 +24,7 @@ public class PishtiGame extends Application {
 
         }
         printGameInfo(deck,player,playerDeck,computer,compDeck,table,tableDeck);
-        */
+
 
         Scene scene = new Scene(pane, 500, 500);
         primaryStage.setScene(scene);
