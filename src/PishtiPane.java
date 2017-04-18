@@ -32,7 +32,14 @@ public class PishtiPane extends BorderPane {
         remainingDeck.getChildren().add(new ImageView(new Image("card/b2fv.png")));
         remainingDeck.getChildren().add(deckSize);
 
-
+        for (int i = 0; i < 3; i++) {
+            Node n = new ImageView(new Image("card/b2fv.png"));
+            rotate(n);
+            pile.getChildren().add(n);
+        }
+        Node n = new ImageView(new Image("card/" + Main.table.getTablePile().get(3) + ".png"));
+        rotate(n);
+        pile.getChildren().add(n);
 
         setCenter(pile);
         pile.setAlignment(Pos.CENTER);
