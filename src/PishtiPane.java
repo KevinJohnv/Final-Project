@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
 import java.util.Random;
 
@@ -24,6 +25,17 @@ public class PishtiPane extends BorderPane {
         for (Integer n: Main.player.getPlayerDeck()) {
             playerHand.getChildren().add(new ImageView(new Image("card/" + n + ".png")));
         }
+
+        Text deckSize = new Text();
+
+        remainingDeck.getChildren().add(new ImageView(new Image("card/b2fv.png")));
+        remainingDeck.getChildren().add(deckSize);
+
+        for (int i = 0; i < Main.computer.size(); i++) {
+            compHand.getChildren().add(new ImageView(new Image("card/b2fv.png")));
+        }
+
+
 
         setCenter(pile);
         pile.setAlignment(Pos.CENTER);
