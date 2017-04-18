@@ -70,6 +70,8 @@ public class Main {
 
         while (rerun == true) {
 
+            PishtiGame.main(null);
+
             // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
             if(playerDeck.size() == 0){
                 giveCards(playerDeck,deck,player);
