@@ -66,12 +66,11 @@ public class Main {
         deck.deal(tableDeck);
         table = new Table(tableDeck);
 
+        PishtiGame.main(null);
 
-        boolean rerun = true;
+        boolean rerun = false;
 
         while (rerun == true) {
-
-            PishtiGame.main(null);
 
             // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
             if(playerDeck.size() == 0){
@@ -146,7 +145,7 @@ public class Main {
         System.out.println("You are playing cardID number " + cardPlayed);
         playerDeck = player.getPlayerDeck();
         table.addCardToTable(cardPlayed);
-        if (table.win()== true){
+        if (table.win()){
             player.setScore(table.calcTablePoints()) ;
             table.setTable();
             player.getScore();

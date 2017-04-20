@@ -63,8 +63,8 @@ public class Player {
 
     // Special Methods *****************************************************************************************************
     public Integer playCard(int selectedCard){
-            int cardNumber = playerDeck.get(selectedCard - 1);
-            playerDeck.remove(selectedCard-1);
+            int cardNumber = this.getPlayerDeck().get(selectedCard);
+            this.getPlayerDeck().remove(selectedCard);
             return cardNumber;
     }
 

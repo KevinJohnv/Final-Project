@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -14,20 +15,24 @@ public class Computer extends Player {
         return compDeck.size();
     }
 
+    public ArrayList<Integer> getCompDeck() {
+        return compDeck;
+    }
+
     public void computerplay(ArrayList<Integer> table)
     {
         boolean hasmatch=false;
         for(int x = 0;x<compDeck.size();x++) {
             if (compDeck.get(x)%13 == table.get(table.size()-1)%13) {
-                playCard(compDeck.get(x));
+                Main.playCard(x,Main.computer, Main.computer.compDeck, Main.table);
                 hasmatch = true;
                 break;
             }
 
         }
-        if(hasmatch==false)
+        if(!hasmatch)
         {
-            playCard(compDeck.get(compDeck.get(compDeck.size()-1)));
+            Main.playCard(0, Main.computer, Main.computer.compDeck, Main.table);
         }
     }
 }

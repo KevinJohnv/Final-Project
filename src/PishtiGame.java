@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -22,6 +23,19 @@ public class PishtiGame extends Application {
         ArrayList<Integer> playerDeck = player.getPlayerDeck();
         ArrayList<Integer> compDeck = computer.getPlayerDeck();
         ArrayList<Integer> tableDeck = table.getTablePile();
+
+            for (int i = 0; i < pane.playerHand.getChildren().size(); i++) {
+                Node n = pane.playerHand.getChildren().get(i);
+                final int j = i;
+                n.setOnMouseClicked(e -> {
+                    Main.playCard(j,player,playerDeck,table);
+                    pane.pile.getChildren().add(n);
+                    pane.playerHand.getChildren().remove(n);
+                    pane.rotate(n);
+
+                    //Main.computer.computerplay(tableDeck);
+                });
+            }
 
 
         // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
