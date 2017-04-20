@@ -32,6 +32,7 @@ public class PishtiGame extends Application {
                     pane.pile.getChildren().add(n);
                     pane.playerHand.getChildren().remove(n);
                     pane.rotate(n);
+                    pane.drawHand(player);
 
                     //Main.computer.computerplay(tableDeck);
                 });

@@ -80,6 +80,7 @@ public class PishtiPane extends BorderPane {
             }
         }
         else {
+            playerHand.getChildren().clear();
             for (Integer n : Main.player.getPlayerDeck()) {
                 playerHand.getChildren().add(new ImageView(new Image("card/" + n + ".png")));
             }
