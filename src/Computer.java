@@ -19,18 +19,20 @@ public class Computer extends Player {
         return compDeck;
     }
 
+
+
     public void computerplay(ArrayList<Integer> table)
     {
         boolean hasmatch=false;
-        for(int x = 0;x<compDeck.size();x++) {
-            if (compDeck.get(x)%13 == table.get(table.size()-1)%13) {
-                Main.playCard(x,Main.computer, Main.computer.compDeck, Main.table);
-                hasmatch = true;
-                break;
-            }
+        //for(int x = 0;x<compDeck.size();x++) {
+           // if (compDeck.get(x)%13 == table.get(table.size())%13) {
+             //   Main.playCard(x,Main.computer, Main.computer.compDeck, Main.table);
+               // hasmatch = true;
+                //break;
+          //}
 
-        }
-        if(!hasmatch)
+        //}
+        //if(!hasmatch)
         {
             Main.playCard(0, Main.computer, Main.computer.compDeck, Main.table);
         }

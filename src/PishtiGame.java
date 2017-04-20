@@ -26,6 +26,7 @@ public class PishtiGame extends Application {
 
             for (int i = 0; i < pane.playerHand.getChildren().size(); i++) {
                 Node n = pane.playerHand.getChildren().get(i);
+                Node k = pane.compHand.getChildren().get(i);
                 final int j = i;
                 n.setOnMouseClicked(e -> {
                     Main.playCard(j,player,playerDeck,table);
@@ -34,13 +35,19 @@ public class PishtiGame extends Application {
                     pane.rotate(n);
                     pane.drawHand(player);
 
-                    //Main.computer.computerplay(tableDeck);
+
+                    Main.playCard(j,computer,compDeck,table);
+                    pane.pile.getChildren().add(k);
+                    pane.compHand.getChildren().remove(k);
+                    pane.rotate(k);
+
+
                 });
             }
 
 
         // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
-        if (Main.player.getSize() == 0){
+        if (Main.player.getSize() == 1){
             Main.giveCards(playerDeck,deck,player);
             pane.drawHand(player);
             player.setPlayerDeck(playerDeck);
