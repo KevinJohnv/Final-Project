@@ -28,7 +28,6 @@ public class PishtiGame extends Application {
 
             for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
                 Node n = pane.playerHand.getChildren().get(i);
-                Node k = pane.compHand.getChildren().get(i);
                 n.setOnMouseClicked(e -> {
                     if (pane.playerHand.getChildren().contains(n)) {
                         Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
@@ -37,13 +36,7 @@ public class PishtiGame extends Application {
                         pane.playerHand.getChildren().remove(n);
                         pane.rotate(n);
 
-                        /*
-                        pane.pile.getChildren().add(tableDeck.size(), new ImageView(new Image("card/" +
-                                Main.computer.getCompDeck().get(pane.compHand.getChildren().indexOf(k)) + ".png")));
-                        pane.compHand.getChildren().remove(k);
-                        pane.rotate(k);
-                        //Main.playCard(pane.compHand.getChildren().indexOf(k), computer, compDeck, table);
-                        */
+                        compPlay(pane);
                     }
 
                 });
@@ -70,6 +63,22 @@ public class PishtiGame extends Application {
         primaryStage.setTitle("Pishti Game");
         primaryStage.show();
 
+    }
+
+    public void compPlay(PishtiPane pane) {
+        for (int i = 0; i < Main.computer.size(); i++ ) {
+            Node k = pane.compHand.getChildren().get(i);
+            if (pane.compHand.getChildren().contains(k)) {
+                ImageView newCard = new ImageView(new Image("card/" + Main.computer.getCompDeck().get(
+                        pane.compHand.getChildren().indexOf(k)) + ".png"));
+                pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
+                Main.computer.getCompDeck().remove(pane.compHand.getChildren().indexOf(k));
+                pane.compHand.getChildren().remove(k);
+                pane.rotate(newCard);
+                //Main.playCard(pane.compHand.getChildren().indexOf(k), computer, compDeck, table);
+                return;
+            }
+        }
     }
 
     public static void main(String[] args) {
