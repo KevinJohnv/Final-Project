@@ -55,8 +55,6 @@ public class PishtiGame extends Application {
             player.setPlayerDeck(compDeck);
             pane.drawHand(computer);
         }
-       // Main.printGameInfo(deck,player,playerDeck,computer,compDeck,table,tableDeck);
-
 
         Scene scene = new Scene(pane, 500, 500);
         primaryStage.setScene(scene);
