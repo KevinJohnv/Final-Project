@@ -24,17 +24,19 @@ public class PishtiGame extends Application {
         ArrayList<Integer> compDeck = computer.getPlayerDeck();
         ArrayList<Integer> tableDeck = table.getTablePile();
 
-            for (int i = 0; i < pane.playerHand.getChildren().size(); i++) {
+            for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
                 Node n = pane.playerHand.getChildren().get(i);
-                final int j = i;
                 n.setOnMouseClicked(e -> {
-                    Main.playCard(j,player,playerDeck,table);
-                    pane.pile.getChildren().add(n);
-                    pane.playerHand.getChildren().remove(n);
-                    pane.rotate(n);
-                    pane.drawHand(player);
+                    if (pane.playerHand.getChildren().contains(n)) {
+                        Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
+                        pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
+                        n.requestFocus();
+                        pane.playerHand.getChildren().remove(n);
+                        //pane.drawHand(player);
+                        pane.rotate(n);
 
-                    //Main.computer.computerplay(tableDeck);
+                        //Main.computer.computerplay(tableDeck);
+                    }
                 });
             }
 
