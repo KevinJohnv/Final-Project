@@ -24,25 +24,30 @@ public class PishtiGame extends Application {
         ArrayList<Integer> compDeck = computer.getPlayerDeck();
         ArrayList<Integer> tableDeck = table.getTablePile();
 
-            for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
+            for (int i = 0; i < pane.playerHand.getChildren().size(); i++) {
                 Node n = pane.playerHand.getChildren().get(i);
+                Node k = pane.compHand.getChildren().get(i);
+                final int j = i;
                 n.setOnMouseClicked(e -> {
-                    if (pane.playerHand.getChildren().contains(n)) {
-                        Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
-                        pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
-                        n.requestFocus();
-                        pane.playerHand.getChildren().remove(n);
-                        //pane.drawHand(player);
-                        pane.rotate(n);
+                    Main.playCard(j,player,playerDeck,table);
+                    pane.pile.getChildren().add(n);
+                    pane.playerHand.getChildren().remove(n);
+                    pane.rotate(n);
+                  //  pane.drawHand(player);
 
-                        //Main.computer.computerplay(tableDeck);
-                    }
+
+                    Main.playCard(j,computer,compDeck,table);
+                    pane.pile.getChildren().add(k);
+                    pane.compHand.getChildren().remove(k);
+                    pane.rotate(k);
+
+
                 });
             }
 
 
         // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
-        if (Main.player.getSize() == 0){
+        if (Main.player.getSize() == 1){
             Main.giveCards(playerDeck,deck,player);
             pane.drawHand(player);
             player.setPlayerDeck(playerDeck);
