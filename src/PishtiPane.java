@@ -75,6 +75,7 @@ public class PishtiPane extends BorderPane {
 
     public void drawHand(Player p) {
         if (p instanceof Computer) {
+            compHand.getChildren().clear();
             for (int i = 0; i < Main.computer.size(); i++) {
                 compHand.getChildren().add(new ImageView(new Image("card/b2fv.png")));
             }
