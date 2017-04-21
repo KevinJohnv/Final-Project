@@ -1,6 +1,8 @@
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -24,23 +26,28 @@ public class PishtiGame extends Application {
         ArrayList<Integer> compDeck = computer.getPlayerDeck();
         ArrayList<Integer> tableDeck = table.getTablePile();
 
-            for (int i = 0; i < pane.playerHand.getChildren().size(); i++) {
+            for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
                 Node n = pane.playerHand.getChildren().get(i);
                 Node k = pane.compHand.getChildren().get(i);
-                final int j = i;
                 n.setOnMouseClicked(e -> {
-                    Main.playCard(j,player,playerDeck,table);
-                    pane.pile.getChildren().add(n);
-                    pane.playerHand.getChildren().remove(n);
-                    pane.rotate(n);
-                  //  pane.drawHand(player);
+                    if (pane.playerHand.getChildren().contains(n)) {
+                        Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
+                        pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
+                        n.requestFocus();
+                        pane.playerHand.getChildren().remove(n);
+                        pane.rotate(n);
 
-
-                    Main.playCard(j,computer,compDeck,table);
-                    pane.pile.getChildren().add(k);
-                    pane.compHand.getChildren().remove(k);
-                    pane.rotate(k);
-
+                        /*
+                        if (pane.compHand.getChildren().contains(k)) {
+                            pane.pile.getChildren().add(pane.pile.getChildren().size(), new ImageView(new Image("card/" +
+                                    Main.computer.getCompDeck().get(0) + ".png")));
+                            k.requestFocus();
+                            pane.compHand.getChildren().remove(k);
+                            pane.rotate(k);
+                            //Main.playCard(pane.compHand.getChildren().indexOf(k), computer, compDeck, table);
+                        }
+                        */
+                    }
 
                 });
             }
