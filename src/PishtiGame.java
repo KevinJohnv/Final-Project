@@ -68,7 +68,7 @@ public class PishtiGame extends Application {
                                     pane.playerHand.getChildren().remove(n);
                                     pane.rotate(n);
                                     PathTransition pt = new PathTransition(Duration.millis(100),
-                                            new Line(100, 200, 100, 0), n);
+                                            new Line(50, 200, 40, 40), n);
                                     pt.setCycleCount(1);
                                     pt.play(); // Start animation
                                     compPlay(pane);
