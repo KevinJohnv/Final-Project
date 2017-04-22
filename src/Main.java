@@ -63,7 +63,7 @@ public class Main {
 
         //Deal the deck to table
         ArrayList<Integer> tableDeck = new ArrayList<Integer>();
-        table =new Table(DeckDeal(tableDeck));
+        table =new Table( DeckDeal(tableDeck));
 
         PishtiGame.main(null);
 

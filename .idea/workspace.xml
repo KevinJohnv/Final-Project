@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a0e9fb6-d71b-45f7-ba43-99d27186eb39" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CardGame/Player.class" afterPath="$PROJECT_DIR$/out/production/CardGame/Player.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PishtiGame.java" afterPath="$PROJECT_DIR$/src/PishtiGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,8 +23,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-217">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="-2497">
+              <caret line="65" column="46" lean-forward="false" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1729#1738#0" expanded="true" />
@@ -36,12 +36,12 @@
       <file leaf-file-name="PishtiGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PishtiGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="70" column="54" lean-forward="false" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
+            <state relative-caret-position="157">
+              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1492904839000" expanded="false" signature="9108:9119" ph=" { " />
-                <marker date="1492904839000" expanded="false" signature="9132:9138" ph=" }" />
+                <marker date="1492905192000" expanded="false" signature="9313:9324" ph=" { " />
+                <marker date="1492905192000" expanded="false" signature="9337:9343" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -662,7 +662,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492902076032</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Clearing the pile after a win is leaving one card">
+      <created>1492904872538</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1492904872538</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -776,7 +783,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/PishtiGame.java</url>
+          <line>20</line>
+          <properties field="firstPileWin" class="PishtiGame" />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1053,8 +1068,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-217">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="-2497">
+          <caret line="65" column="46" lean-forward="false" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1729#1738#0" expanded="true" />
@@ -1064,12 +1079,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PishtiGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="70" column="54" lean-forward="false" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
+        <state relative-caret-position="157">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1492904839000" expanded="false" signature="9108:9119" ph=" { " />
-            <marker date="1492904839000" expanded="false" signature="9132:9138" ph=" }" />
+            <marker date="1492905192000" expanded="false" signature="9313:9324" ph=" { " />
+            <marker date="1492905192000" expanded="false" signature="9337:9343" ph=" }" />
           </folding>
         </state>
       </provider>
