@@ -63,8 +63,7 @@ public class Main {
 
         //Deal the deck to table
         ArrayList<Integer> tableDeck = new ArrayList<Integer>();
-        deck.deal(tableDeck);
-        table = new Table(tableDeck);
+        table =new Table(DeckDeal(tableDeck));
 
         PishtiGame.main(null);
 
@@ -245,5 +244,16 @@ public class Main {
                 "\n************************************************************************************\n");
 
         }
+
+    public static ArrayList<Integer> DeckDeal(ArrayList<Integer> tableDeck){
+        deck.deal(tableDeck);
+        if(tableDeck.get(tableDeck.size() -1)%13  != 11){
+
+        }else{
+            deck.shuffle();
+            DeckDeal(tableDeck);
+        }
+        return tableDeck;
+    }
 
 }
