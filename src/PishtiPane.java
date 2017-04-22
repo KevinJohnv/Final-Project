@@ -24,6 +24,9 @@ public class PishtiPane extends BorderPane {
 
     private Text deckSize = new Text(Integer.toString(Main.deck.numberOfCards()));
 
+    private Text playerCards = new Text("Player: " + Main.player.getNumofCards());
+    private Text compCards = new Text("Computer: " + Main.player.getNumofCards());
+
     public PishtiPane() {
 
         drawHand(Main.player);
@@ -52,24 +55,24 @@ public class PishtiPane extends BorderPane {
         playerHand.setAlignment(Pos.CENTER);
         playerHand.setPadding(new Insets(10,10,10,10));
         playerHand.setPrefHeight(120);
-        //playerHand.setStyle("-fx-border-color: black");
 
         setLeft(remainingDeck);
         remainingDeck.setAlignment(Pos.CENTER);
         remainingDeck.setPadding(new Insets(10,10,10,10));
         remainingDeck.setPrefWidth(100);
-        //remainingDeck.setStyle("-fx-border-color: black");
 
         setTop(compHand);
         compHand.setAlignment(Pos.CENTER);
         compHand.setPadding(new Insets(10,10,10,10));
-        //compHand.setStyle("-fx-border-color: black");
         compHand.setPrefHeight(120);
 
         setRight(otherSide);
         otherSide.setAlignment(Pos.CENTER);
         otherSide.setPadding(new Insets(10,10,10,10));
-        otherSide.setPrefWidth(100);
+        otherSide.setPrefWidth(remainingDeck.getWidth());
+
+        otherSide.getChildren().add(playerCards);
+        otherSide.getChildren().add(compCards);
 
         setStyle("-fx-border-color: black; -fx-background-color: saddlebrown");
     }
