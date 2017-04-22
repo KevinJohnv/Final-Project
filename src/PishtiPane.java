@@ -89,4 +89,13 @@ public class PishtiPane extends BorderPane {
 
         deckSize.setText(Integer.toString(Main.deck.numberOfCards()));
     }
+
+    public void updatePile() {
+        pile.getChildren().clear();
+        for (Integer n: Main.table.getTablePile()) {
+            ImageView card = new ImageView(new Image("card/" + n + ".png"));
+            pile.getChildren().add(card);
+            rotate(card);
+        }
+    }
 }

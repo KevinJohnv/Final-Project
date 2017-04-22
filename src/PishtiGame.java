@@ -33,6 +33,12 @@ public class PishtiGame extends Application {
                             n.setOnMouseClicked(e -> {
                                 if (pane.playerHand.getChildren().contains(n)) {
                                     Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
+                                    if (table.win()) {
+                                        player.setScore(table.calcTablePoints());
+                                        table.getTablePile().clear();
+                                        pane.updatePile();
+                                        player.getScore();
+                                    }
                                     pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
                                     n.requestFocus();
                                     pane.playerHand.getChildren().remove(n);
@@ -74,6 +80,12 @@ public class PishtiGame extends Application {
                 ImageView newCard = new ImageView(new Image("card/" + Main.computer.getCompDeck().get(
                         pane.compHand.getChildren().indexOf(k)) + ".png"));
                 Main.playCard(pane.compHand.getChildren().indexOf(k), Main.computer, Main.computer.getCompDeck(), Main.table);
+                if (Main.table.win()){
+                    Main.computer.setScore(Main.table.calcTablePoints()) ;
+                    Main.table.getTablePile().clear();
+                    pane.updatePile();
+                    Main.computer.getScore();
+                }
                 pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
                 pane.compHand.getChildren().remove(k);
                 pane.rotate(newCard);

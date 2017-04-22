@@ -12,7 +12,7 @@ public class Table {
     }
 
     public void setTable(){
-        tablePile.removeAll(tablePile);
+        tablePile.clear();
     }
 
     public ArrayList<Integer> getTablePile(){
@@ -59,15 +59,17 @@ public class Table {
     }
 
     public boolean win(){
-        if(tablePile.size()>1) {
-            System.out.println(tablePile.size());
+        if(tablePile.size() > 1) {
+            //System.out.println(tablePile.size());
             if (tablePile.get(tablePile.size() - 1) % 13 == tablePile.get(tablePile.size() - 2) % 13 || tablePile.get(tablePile.size() - 1) % 13 == 11) {
                 return true;
             } else {
                 return false;
             }
 
-        }else{ return false;}
+        } else {
+            return false;
+        }
     }
 
     public void addCardToTable(Integer newCard){
