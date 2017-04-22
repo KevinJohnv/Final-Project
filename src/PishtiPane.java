@@ -20,7 +20,7 @@ public class PishtiPane extends BorderPane {
     HBox playerHand = new HBox(5);
     HBox compHand = new HBox(5);
 
-    Text deckSize = new Text(Integer.toString(Main.deck.numberOfCards()));
+    private Text deckSize = new Text(Integer.toString(Main.deck.numberOfCards()));
 
     public PishtiPane() {
 
@@ -44,7 +44,7 @@ public class PishtiPane extends BorderPane {
         setCenter(pile);
         pile.setAlignment(Pos.CENTER);
         pile.setPadding(new Insets(10,10,10,10));
-        pile.setStyle("-fx-border-color: black; -fx-background-color: green");
+        pile.setStyle("-fx-border-color: black; -fx-background-color: forestgreen");
 
         setBottom(playerHand);
         playerHand.setAlignment(Pos.CENTER);
@@ -65,7 +65,7 @@ public class PishtiPane extends BorderPane {
         compHand.setStyle("-fx-border-color: black");
         compHand.setPrefHeight(120);
 
-        setStyle("-fx-border-color: black; -fx-background-color: lime");
+        setStyle("-fx-border-color: black; -fx-background-color: saddlebrown");
     }
 
     public void rotate(Node n) {
