@@ -13,7 +13,10 @@ import java.util.ArrayList;
  * Created by HpUser on 4/18/2017.
  */
 public class PishtiGame extends Application {
+
     private boolean playerWon;
+    private boolean firstPileWin = true;
+
     @Override
     public void start(Stage primaryStage) {
         // Local Datatypes
@@ -33,11 +36,23 @@ public class PishtiGame extends Application {
                         for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
                             Node n = pane.playerHand.getChildren().get(i);
                             n.setOnMouseClicked(e -> {
+
+                                if (pane.otherSide.getChildren().size() > 2) {
+                                    pane.otherSide.getChildren().remove(2,5);
+                                }
+
                                 if (pane.playerHand.getChildren().contains(n)) {
                                     Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
                                     pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
                                     System.out.println("Player: " + Integer.toString(player.getScore())+" "+player.getNumofCards() + " Computer: " + Integer.toString(computer.getScore()) +" "+ computer.getNumofCards());
                                     if (table.win()) {
+                                        if (firstPileWin) {
+                                            for (int j = 0; j < 3; j++) {
+                                                ImageView flip = new ImageView(new Image("card/" + tableDeck.get(j) + ".png"));
+                                                pane.otherSide.getChildren().add(flip);
+                                            }
+                                            firstPileWin = false;
+                                        }
                                         player.setScore(table.calcTablePoints());
                                         player.setNumOfCardsInPile(table.getTablePile().size());
                                         pane.playerCards.setText("Player: " + Integer.toString(player.getNumofCards()));
@@ -51,7 +66,6 @@ public class PishtiGame extends Application {
                                     pane.rotate(n);
 
                                     compPlay(pane);
-
                                 }
 
                                 if (Main.player.getPlayerDeck().isEmpty() && deck.returnDeck().size() != 0 ) {
@@ -112,7 +126,7 @@ public class PishtiGame extends Application {
 
         // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
 
-        Scene scene = new Scene(pane, 650, 550);
+        Scene scene = new Scene(pane, 700, 650);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Pishti Game");
         primaryStage.show();
@@ -129,6 +143,7 @@ public class PishtiGame extends Application {
                 pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
                 System.out.println("Player: " + Integer.toString(Main.player.getScore()) + " Computer: " + Integer.toString(Main.computer.getScore()));
                 if (Main.table.win()){
+                    firstPileWin = false;
                     Main.computer.setScore(Main.table.calcTablePoints()) ;
                     Main.computer.setNumOfCardsInPile(Main.table.getTablePile().size());
                     pane.compCards.setText("Computer: " + Integer.toString(Main.computer.getNumofCards()));
