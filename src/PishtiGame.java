@@ -73,13 +73,15 @@ public class PishtiGame extends Application {
                                         computer.setScore(3);
                                     }
 
-                                    if(playerWon == true){
+                                    if(playerWon){
                                         player.setScore(table.calcTablePoints());
+                                        player.setNumOfCardsInPile(table.getTablePile().size());
                                         table.getTablePile().clear();
                                         pane.updatePile();
                                         pane.playerCards.setText("Player: " + Integer.toString(player.getNumofCards()));
-                                    }else if(playerWon == false){
+                                    }else if(!playerWon){
                                         computer.setScore(table.calcTablePoints());
+                                        computer.setNumOfCardsInPile(table.getTablePile().size());
                                         table.getTablePile().clear();
                                         pane.updatePile();
                                         pane.compCards.setText("Computer: " + Integer.toString(Main.computer.getNumofCards()));
