@@ -92,7 +92,7 @@ public class PishtiPane extends BorderPane {
 
     public void updatePile() {
         pile.getChildren().clear();
-        for (Integer n: Main.table.getTablePile()) {
+        for (int n = 0; n < Main.table.getTablePile().size(); n++) {
             ImageView card = new ImageView(new Image("card/" + n + ".png"));
             pile.getChildren().add(card);
             rotate(card);
