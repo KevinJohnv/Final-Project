@@ -102,7 +102,7 @@ public class PishtiGame extends Application {
 
         // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
 
-        Scene scene = new Scene(pane, 500, 500);
+        Scene scene = new Scene(pane, 600, 500);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Pishti Game");
         primaryStage.show();
