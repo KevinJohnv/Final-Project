@@ -141,14 +141,25 @@ public class Main {
     }
 
     public static void playCard(int i, Player player, ArrayList<Integer> playerDeck, Table table){
-        Integer cardPlayed = player.playCard(i);
-        System.out.println("You are playing cardID number " + cardPlayed);
-        playerDeck = player.getPlayerDeck();
-        table.addCardToTable(cardPlayed);
-        if (table.win()){
-            player.setScore(table.calcTablePoints()) ;
-            table.setTable();
-            player.getScore();
+        if (player instanceof Computer) {
+            Integer cardPlayed = player.playCard(i);
+            System.out.println("You are playing cardID number " + cardPlayed);
+            table.addCardToTable(cardPlayed);
+            if (table.win()){
+                computer.setScore(table.calcTablePoints()) ;
+                table.setTable();
+                computer.getScore();
+            }
+        } else {
+            Integer cardPlayed = player.playCard(i);
+            System.out.println("You are playing cardID number " + cardPlayed);
+            playerDeck = player.getPlayerDeck();
+            table.addCardToTable(cardPlayed);
+            if (table.win()) {
+                player.setScore(table.calcTablePoints());
+                table.setTable();
+                player.getScore();
+            }
         }
     }
 

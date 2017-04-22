@@ -73,11 +73,10 @@ public class PishtiGame extends Application {
             if (pane.compHand.getChildren().contains(k)) {
                 ImageView newCard = new ImageView(new Image("card/" + Main.computer.getCompDeck().get(
                         pane.compHand.getChildren().indexOf(k)) + ".png"));
+                Main.playCard(pane.compHand.getChildren().indexOf(k), Main.computer, Main.computer.getCompDeck(), Main.table);
                 pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
-                Main.computer.getCompDeck().remove(pane.compHand.getChildren().indexOf(k));
                 pane.compHand.getChildren().remove(k);
                 pane.rotate(newCard);
-                //Main.playCard(pane.compHand.getChildren().indexOf(k), computer, compDeck, table);
                 return;
             }
         }

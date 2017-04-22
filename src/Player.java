@@ -63,9 +63,15 @@ public class Player {
 
     // Special Methods *****************************************************************************************************
     public Integer playCard(int selectedCard){
+        if (this instanceof Computer) {
             int cardNumber = this.getPlayerDeck().get(selectedCard);
             this.getPlayerDeck().remove(selectedCard);
             return cardNumber;
+        }else {
+            int cardNumber = this.getPlayerDeck().get(selectedCard);
+            this.getPlayerDeck().remove(selectedCard);
+            return cardNumber;
+        }
     }
 
 

@@ -19,6 +19,11 @@ public class Computer extends Player {
         return compDeck;
     }
 
+    @Override
+    public ArrayList<Integer> getPlayerDeck() {
+        return getCompDeck();
+    }
+
 
 
     public void computerplay(ArrayList<Integer> table)
