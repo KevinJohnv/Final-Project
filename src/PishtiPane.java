@@ -20,13 +20,13 @@ public class PishtiPane extends BorderPane {
     HBox playerHand = new HBox(5);
     HBox compHand = new HBox(5);
 
+    Text deckSize = new Text(Integer.toString(Main.deck.numberOfCards()));
 
     public PishtiPane() {
 
         drawHand(Main.player);
         drawHand(Main.computer);
 
-        Text deckSize = new Text(Integer.toString(Main.deck.numberOfCards()));
         deckSize.setFont(new Font(45));
 
         remainingDeck.getChildren().add(new ImageView(new Image("card/b2fv.png")));
@@ -86,5 +86,7 @@ public class PishtiPane extends BorderPane {
                 playerHand.getChildren().add(new ImageView(new Image("card/" + n + ".png")));
             }
         }
+
+        deckSize.setText(Integer.toString(Main.deck.numberOfCards()));
     }
 }

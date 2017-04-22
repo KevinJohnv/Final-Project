@@ -27,7 +27,7 @@ public class PishtiGame extends Application {
         ArrayList<Integer> tableDeck = table.getTablePile();
 
 
-            //pane.setOnMouseMoved(event -> {
+            pane.setOnMouseMoved(event -> {
                         for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
                             Node n = pane.playerHand.getChildren().get(i);
                             n.setOnMouseClicked(e -> {
@@ -44,18 +44,18 @@ public class PishtiGame extends Application {
                                 if (Main.player.getPlayerDeck().isEmpty()) {
                                     Main.giveCards(playerDeck, deck, player);
                                     pane.drawHand(player);
-                                    player.setPlayerDeck(playerDeck);
+                                    //player.setPlayerDeck(playerDeck);
                                 }
 
                                 if (computer.getCompDeck().isEmpty()) {
                                     Main.giveCards(compDeck, deck, computer);
-                                    player.setPlayerDeck(compDeck);
+                                    //player.setPlayerDeck(compDeck);
                                     pane.drawHand(computer);
                                 }
 
                             });
                         }
-                    //});
+                    });
 
 
         // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
