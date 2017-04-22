@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -26,18 +25,18 @@ public class Computer extends Player {
 
 
 
-    public void computerplay(ArrayList<Integer> table)
+    public void computerplay(ArrayList<Integer> tablePile, Table table)
     {
         boolean hasmatch=false;
-        //for(int x = 0;x<compDeck.size();x++) {
-           // if (compDeck.get(x)%13 == table.get(table.size())%13) {
-             //   Main.playCard(x,Main.computer, Main.computer.compDeck, Main.table);
-               // hasmatch = true;
-                //break;
-          //}
+        for(int x = 0;x<compDeck.size();x++) {
+           if (compDeck.get(x)%13 == tablePile.get(tablePile.size())%13) {
+             Main.playCard(x,Main.computer, Main.computer.compDeck, Main.table);
+                hasmatch = true;
+                break;
+           }
 
-        //}
-        //if(!hasmatch)
+        }
+        if(!hasmatch && table.calcTablePoints() > 3)
         {
             Main.playCard(0, Main.computer, Main.computer.compDeck, Main.table);
         }

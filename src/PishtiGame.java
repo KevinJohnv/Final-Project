@@ -41,13 +41,13 @@ public class PishtiGame extends Application {
                                     compPlay(pane);
                                 }
 
-                                if (Main.player.getPlayerDeck().isEmpty()) {
+                                if (Main.player.getPlayerDeck().isEmpty() && deck.returnDeck().size() != 0 ) {
                                     Main.giveCards(playerDeck, deck, player);
                                     pane.drawHand(player);
                                     //player.setPlayerDeck(playerDeck);
                                 }
 
-                                if (computer.getCompDeck().isEmpty()) {
+                                if (computer.getCompDeck().isEmpty() && deck.returnDeck().size() != 0) {
                                     Main.giveCards(compDeck, deck, computer);
                                     //player.setPlayerDeck(compDeck);
                                     pane.drawHand(computer);
