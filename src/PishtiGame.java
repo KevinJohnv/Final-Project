@@ -37,9 +37,11 @@ public class PishtiGame extends Application {
                                 if (pane.playerHand.getChildren().contains(n)) {
                                     Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
                                     pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
+                                    System.out.println("Player: " + Integer.toString(player.getScore()) + " Computer: " + Integer.toString(computer.getScore()));
                                     if (table.win()) {
                                         player.setScore(table.calcTablePoints());
                                         table.getTablePile().clear();
+                                        table.tableScore = 0;
                                         pane.updatePile();
                                         player.getScore();
                                         playerWon = true;
@@ -93,6 +95,7 @@ public class PishtiGame extends Application {
                                 }
 
                             });
+
                         }
                     });
 
@@ -114,9 +117,11 @@ public class PishtiGame extends Application {
                         pane.compHand.getChildren().indexOf(k)) + ".png"));
                 Main.playCard(pane.compHand.getChildren().indexOf(k), Main.computer, Main.computer.getCompDeck(), Main.table);
                 pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
+                System.out.println("Player: " + Integer.toString(Main.player.getScore()) + " Computer: " + Integer.toString(Main.computer.getScore()));
                 if (Main.table.win()){
                     Main.computer.setScore(Main.table.calcTablePoints()) ;
                     Main.table.getTablePile().clear();
+                    Main.table.tableScore = 0;
                     pane.updatePile();
                     Main.computer.getScore();
                     playerWon = false;

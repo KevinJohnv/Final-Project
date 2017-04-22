@@ -151,6 +151,7 @@ public class Main {
             playerDeck = player.getPlayerDeck();
             table.addCardToTable(cardPlayed);
         }
+        //System.out.println("Player: " + Integer.toString(player.getScore()) + " Computer: " + Integer.toString(computer.getScore()));
     }
 
     public static void giveCards (ArrayList playerDeck,Deck deck, Player player){

@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Check if played card is a win or next players turn
  */
 public class Table {
+    int tableScore = 0;
     private ArrayList<Integer> tablePile;
     public Table(ArrayList<Integer> givenCards){
         tablePile = givenCards;
@@ -13,6 +14,7 @@ public class Table {
 
     public void setTable(){
         tablePile.clear();
+        tableScore = 0;
     }
 
     public ArrayList<Integer> getTablePile(){
@@ -30,7 +32,7 @@ public class Table {
 
        /* ASK TEACHER ABOUT RULES*/
 
-       int tableScore = 0;
+
         if (tablePile.size()==2){
             if(tablePile.get(tablePile.size()-1)%13 == 11 && tablePile.get(tablePile.size()-2)%13 == 11){
                 System.out.println("JACK PISHTI!");
