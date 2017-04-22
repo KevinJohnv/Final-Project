@@ -36,9 +36,10 @@ public class PishtiGame extends Application {
                                 if (pane.playerHand.getChildren().contains(n)) {
                                     Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
                                     pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
-                                    System.out.println("Player: " + Integer.toString(player.getScore()) + " Computer: " + Integer.toString(computer.getScore()));
+                                    System.out.println("Player: " + Integer.toString(player.getScore())+" "+player.getNumofCards() + " Computer: " + Integer.toString(computer.getScore()) +" "+ computer.getNumofCards());
                                     if (table.win()) {
                                         player.setScore(table.calcTablePoints());
+                                        player.setNumOfCardsInPile(table.getTablePile().size());
                                         table.getTablePile().clear();
                                         table.tableScore = 0;
                                         pane.updatePile();
@@ -66,6 +67,12 @@ public class PishtiGame extends Application {
                                 }
 
                                 if(deck.returnDeck().isEmpty() && compDeck.isEmpty()){
+                                    if(player.getNumofCards() > computer.getNumofCards()){
+                                        player.setScore(3);
+                                    }else if(player.getNumofCards() < computer.getNumofCards()){
+                                        computer.setScore(3);
+                                    }
+
                                     if(playerWon == true){
                                         player.setScore(table.calcTablePoints());
                                         table.getTablePile().clear();
@@ -119,6 +126,7 @@ public class PishtiGame extends Application {
                 System.out.println("Player: " + Integer.toString(Main.player.getScore()) + " Computer: " + Integer.toString(Main.computer.getScore()));
                 if (Main.table.win()){
                     Main.computer.setScore(Main.table.calcTablePoints()) ;
+                    Main.computer.setNumOfCardsInPile(Main.table.getTablePile().size());
                     Main.table.getTablePile().clear();
                     Main.table.tableScore = 0;
                     pane.updatePile();
