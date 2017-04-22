@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by HpUser on 4/18/2017.
  */
 public class PishtiGame extends Application {
-
+    private boolean playerWon;
     @Override
     public void start(Stage primaryStage) {
         // Local Datatypes
@@ -30,6 +30,7 @@ public class PishtiGame extends Application {
 
 
             pane.setOnMouseMoved(event -> {
+
                         for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
                             Node n = pane.playerHand.getChildren().get(i);
                             n.setOnMouseClicked(e -> {
@@ -41,6 +42,7 @@ public class PishtiGame extends Application {
                                         table.getTablePile().clear();
                                         pane.updatePile();
                                         player.getScore();
+                                        playerWon = true;
                                     }
                                     n.requestFocus();
                                     pane.playerHand.getChildren().remove(n);
@@ -63,6 +65,15 @@ public class PishtiGame extends Application {
                                 }
 
                                 if(deck.returnDeck().isEmpty() && compDeck.isEmpty()){
+                                    if(playerWon == true){
+                                        player.setScore(table.calcTablePoints());
+                                        table.getTablePile().clear();
+                                        pane.updatePile();
+                                    }else if(playerWon == false){
+                                        computer.setScore(table.calcTablePoints());
+                                        table.getTablePile().clear();
+                                        pane.updatePile();
+                                    }
                                     String playerScore =  Integer.toString(player.getScore());
                                     String compScore = Integer.toString(computer.getScore());
 
@@ -108,6 +119,7 @@ public class PishtiGame extends Application {
                     Main.table.getTablePile().clear();
                     pane.updatePile();
                     Main.computer.getScore();
+                    playerWon = false;
                 }
                 pane.compHand.getChildren().remove(k);
                 pane.rotate(newCard);
