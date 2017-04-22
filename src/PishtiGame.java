@@ -3,6 +3,8 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -45,6 +47,7 @@ public class PishtiGame extends Application {
                                     pane.rotate(n);
 
                                     compPlay(pane);
+
                                 }
 
                                 if (Main.player.getPlayerDeck().isEmpty() && deck.returnDeck().size() != 0 ) {
@@ -57,6 +60,25 @@ public class PishtiGame extends Application {
                                     Main.giveCards(compDeck, deck, computer);
                                     //player.setPlayerDeck(compDeck);
                                     pane.drawHand(computer);
+                                }
+
+                                if(deck.returnDeck().isEmpty() && compDeck.isEmpty()){
+                                    String playerScore =  Integer.toString(player.getScore());
+                                    String compScore = Integer.toString(computer.getScore());
+
+                                    if(player.getScore() > computer.getScore()){
+                                        Text win = new Text("You Win! :D\n Your Score:"+playerScore+"\n Computer Score:"+compScore);
+                                        win.setFont(new Font(50));
+                                        pane.pile.getChildren().add(win);
+                                    } else if(player.getScore() < computer.getScore()){
+                                        Text win = new Text("You Lose! D;\nYour Score:"+playerScore+"\n Computer Score:"+compScore);
+                                        win.setFont(new Font(50));
+                                        pane.pile.getChildren().add(win);
+                                    }else{
+                                        Text win = new Text("Draw...\nYour Score:"+playerScore+"\n Computer Score:"+compScore);
+                                        win.setFont(new Font(50));
+                                        pane.pile.getChildren().add(win);
+                                    }
                                 }
 
                             });
