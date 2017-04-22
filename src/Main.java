@@ -153,7 +153,11 @@ public class Main {
     }
 
     public static void giveCards (ArrayList playerDeck,Deck deck, Player player){
-        player.setPlayerDeck(deck.deal(playerDeck));
+        if (player instanceof Computer) {
+            computer.setPlayerDeck(deck.deal(computer.getCompDeck()));
+        } else {
+            player.setPlayerDeck(deck.deal(playerDeck));
+        }
     }
 
     public static void printDeck(ArrayList<Integer> deck){

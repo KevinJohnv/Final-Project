@@ -26,35 +26,39 @@ public class PishtiGame extends Application {
         ArrayList<Integer> compDeck = computer.getPlayerDeck();
         ArrayList<Integer> tableDeck = table.getTablePile();
 
-            for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
-                Node n = pane.playerHand.getChildren().get(i);
-                n.setOnMouseClicked(e -> {
-                    if (pane.playerHand.getChildren().contains(n)) {
-                        Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
-                        pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
-                        n.requestFocus();
-                        pane.playerHand.getChildren().remove(n);
-                        pane.rotate(n);
 
-                        compPlay(pane);
-                    }
+            //pane.setOnMouseMoved(event -> {
+                        for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
+                            Node n = pane.playerHand.getChildren().get(i);
+                            n.setOnMouseClicked(e -> {
+                                if (pane.playerHand.getChildren().contains(n)) {
+                                    Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
+                                    pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
+                                    n.requestFocus();
+                                    pane.playerHand.getChildren().remove(n);
+                                    pane.rotate(n);
 
-                });
-            }
+                                    compPlay(pane);
+                                }
+
+                                if (Main.player.getPlayerDeck().isEmpty()) {
+                                    Main.giveCards(playerDeck, deck, player);
+                                    pane.drawHand(player);
+                                    player.setPlayerDeck(playerDeck);
+                                }
+
+                                if (computer.getCompDeck().isEmpty()) {
+                                    Main.giveCards(compDeck, deck, computer);
+                                    player.setPlayerDeck(compDeck);
+                                    pane.drawHand(computer);
+                                }
+
+                            });
+                        }
+                    //});
 
 
         // ReDeals the cards if the cards have run out and there are still cards on the deck it will pass them out to player and Comp
-        if (Main.player.getSize() == 1){
-            Main.giveCards(playerDeck,deck,player);
-            pane.drawHand(player);
-            player.setPlayerDeck(playerDeck);
-        }
-
-        if(computer.size() == 0 ){
-            Main.giveCards(compDeck,deck,computer);
-            player.setPlayerDeck(compDeck);
-            pane.drawHand(computer);
-        }
 
         Scene scene = new Scene(pane, 500, 500);
         primaryStage.setScene(scene);
