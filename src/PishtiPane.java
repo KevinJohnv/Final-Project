@@ -50,19 +50,19 @@ public class PishtiPane extends BorderPane {
         playerHand.setAlignment(Pos.CENTER);
         playerHand.setPadding(new Insets(10,10,10,10));
         playerHand.setPrefHeight(120);
-        playerHand.setStyle("-fx-border-color: black");
+        //playerHand.setStyle("-fx-border-color: black");
 
         setLeft(remainingDeck);
         remainingDeck.setAlignment(Pos.CENTER);
         remainingDeck.setPadding(new Insets(10,10,10,10));
         remainingDeck.setPrefWidth(100);
-        remainingDeck.setStyle("-fx-border-color: black");
+        //remainingDeck.setStyle("-fx-border-color: black");
 
 
         setTop(compHand);
         compHand.setAlignment(Pos.CENTER);
         compHand.setPadding(new Insets(10,10,10,10));
-        compHand.setStyle("-fx-border-color: black");
+        //compHand.setStyle("-fx-border-color: black");
         compHand.setPrefHeight(120);
 
         setStyle("-fx-border-color: black; -fx-background-color: saddlebrown");
