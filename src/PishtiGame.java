@@ -40,10 +40,10 @@ public class PishtiGame extends Application {
                                     if (table.win()) {
                                         player.setScore(table.calcTablePoints());
                                         player.setNumOfCardsInPile(table.getTablePile().size());
+                                        pane.playerCards.setText("Player: " + Integer.toString(player.getNumofCards()));
                                         table.getTablePile().clear();
                                         table.tableScore = 0;
                                         pane.updatePile();
-                                        player.getScore();
                                         playerWon = true;
                                     }
                                     n.requestFocus();
@@ -127,6 +127,7 @@ public class PishtiGame extends Application {
                 if (Main.table.win()){
                     Main.computer.setScore(Main.table.calcTablePoints()) ;
                     Main.computer.setNumOfCardsInPile(Main.table.getTablePile().size());
+                    pane.compCards.setText("Computer: " + Integer.toString(Main.computer.getNumofCards()));
                     Main.table.getTablePile().clear();
                     Main.table.tableScore = 0;
                     pane.updatePile();

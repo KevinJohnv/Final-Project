@@ -24,8 +24,8 @@ public class PishtiPane extends BorderPane {
 
     private Text deckSize = new Text(Integer.toString(Main.deck.numberOfCards()));
 
-    private Text playerCards = new Text("Player: " + Main.player.getNumofCards());
-    private Text compCards = new Text("Computer: " + Main.player.getNumofCards());
+    public Text playerCards = new Text("Player: " + Main.player.getNumofCards());
+    public Text compCards = new Text("Computer: " + Main.player.getNumofCards());
 
     public PishtiPane() {
 
@@ -71,6 +71,8 @@ public class PishtiPane extends BorderPane {
         otherSide.setPadding(new Insets(10,10,10,10));
         otherSide.setPrefWidth(remainingDeck.getWidth());
 
+        playerCards.setFont(new Font(20));
+        compCards.setFont(new Font(20));
         otherSide.getChildren().add(playerCards);
         otherSide.getChildren().add(compCards);
 
