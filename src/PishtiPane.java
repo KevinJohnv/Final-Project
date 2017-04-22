@@ -42,39 +42,41 @@ public class PishtiPane extends BorderPane {
             rotate(n);
             pile.getChildren().add(n);
         }
+
         Node n = new ImageView(new Image("card/" + Main.table.getTablePile().get(3) + ".png"));
         rotate(n);
         pile.getChildren().add(n);
 
         setCenter(pile);
         pile.setAlignment(Pos.CENTER);
-        pile.setPadding(new Insets(10,10,10,10));
+        pile.setPadding(new Insets(10, 10, 10, 10));
         pile.setStyle("-fx-border-color: black; -fx-background-color: forestgreen");
 
         setBottom(playerHand);
         playerHand.setAlignment(Pos.CENTER);
-        playerHand.setPadding(new Insets(10,10,10,10));
+        playerHand.setPadding(new Insets(10, 10, 10, 10));
         playerHand.setPrefHeight(120);
 
         setLeft(remainingDeck);
         remainingDeck.setAlignment(Pos.CENTER);
-        remainingDeck.setPadding(new Insets(10,10,10,10));
+        remainingDeck.setPadding(new Insets(10, 10, 10, 10));
         remainingDeck.setPrefWidth(100);
 
         setTop(compHand);
         compHand.setAlignment(Pos.CENTER);
-        compHand.setPadding(new Insets(10,10,10,10));
+        compHand.setPadding(new Insets(10, 10, 10, 10));
         compHand.setPrefHeight(120);
 
         setRight(otherSide);
         otherSide.setAlignment(Pos.CENTER);
-        otherSide.setPadding(new Insets(10,10,10,10));
+        otherSide.setPadding(new Insets(10, 10, 10, 10));
         otherSide.setPrefWidth(remainingDeck.getWidth());
 
         playerCards.setFont(new Font(20));
         compCards.setFont(new Font(20));
         otherSide.getChildren().add(compCards);
         otherSide.getChildren().add(playerCards);
+
 
         setStyle("-fx-border-color: black; -fx-background-color: saddlebrown");
     }
@@ -90,8 +92,7 @@ public class PishtiPane extends BorderPane {
             for (int i = 0; i < Main.computer.size(); i++) {
                 compHand.getChildren().add(new ImageView(new Image("card/b2fv.png")));
             }
-        }
-        else {
+        } else {
             playerHand.getChildren().clear();
             for (Integer n : Main.player.getPlayerDeck()) {
                 playerHand.getChildren().add(new ImageView(new Image("card/" + n + ".png")));
@@ -109,4 +110,16 @@ public class PishtiPane extends BorderPane {
             rotate(card);
         }
     }
+    public void winsfirstcards(boolean x) {
+        Node n = new ImageView(new Image("card/" + Main.table.getTablePile().get(0) + ".png"));
+        Node y = new ImageView(new Image("card/" + Main.table.getTablePile().get(1) + ".png"));
+        Node z = new ImageView(new Image("card/" + Main.table.getTablePile().get(2) + ".png"));
+        if (x = true) {
+            otherSide.getChildren().addAll(n, y, z);
+
+
+
+        }
+    }
 }
+

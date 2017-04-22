@@ -67,6 +67,7 @@ public class Player {
             int cardNumber = this.getPlayerDeck().get(selectedCard);
             this.getPlayerDeck().remove(selectedCard);
             return cardNumber;
+
         }else {
             int cardNumber = this.getPlayerDeck().get(selectedCard);
             this.getPlayerDeck().remove(selectedCard);

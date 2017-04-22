@@ -1,11 +1,14 @@
+import javafx.animation.PathTransition;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -64,7 +67,10 @@ public class PishtiGame extends Application {
                                     n.requestFocus();
                                     pane.playerHand.getChildren().remove(n);
                                     pane.rotate(n);
-
+                                    PathTransition pt = new PathTransition(Duration.millis(100),
+                                            new Line(100, 200, 100, 0), n);
+                                    pt.setCycleCount(1);
+                                    pt.play(); // Start animation
                                     compPlay(pane);
                                 }
 
@@ -88,6 +94,7 @@ public class PishtiGame extends Application {
                                     }
 
                                     if(playerWon){
+
                                         player.setScore(table.calcTablePoints());
                                         player.setNumOfCardsInPile(table.getTablePile().size());
                                         table.getTablePile().clear();
