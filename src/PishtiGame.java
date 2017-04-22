@@ -30,7 +30,6 @@ public class PishtiGame extends Application {
 
 
             pane.setOnMouseMoved(event -> {
-
                         for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
                             Node n = pane.playerHand.getChildren().get(i);
                             n.setOnMouseClicked(e -> {

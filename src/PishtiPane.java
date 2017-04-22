@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -19,6 +20,7 @@ public class PishtiPane extends BorderPane {
     StackPane remainingDeck = new StackPane();
     HBox playerHand = new HBox(5);
     HBox compHand = new HBox(5);
+    VBox otherSide = new VBox(5);
 
     private Text deckSize = new Text(Integer.toString(Main.deck.numberOfCards()));
 
@@ -58,12 +60,16 @@ public class PishtiPane extends BorderPane {
         remainingDeck.setPrefWidth(100);
         //remainingDeck.setStyle("-fx-border-color: black");
 
-
         setTop(compHand);
         compHand.setAlignment(Pos.CENTER);
         compHand.setPadding(new Insets(10,10,10,10));
         //compHand.setStyle("-fx-border-color: black");
         compHand.setPrefHeight(120);
+
+        setRight(otherSide);
+        otherSide.setAlignment(Pos.CENTER);
+        otherSide.setPadding(new Insets(10,10,10,10));
+        otherSide.setPrefWidth(100);
 
         setStyle("-fx-border-color: black; -fx-background-color: saddlebrown");
     }
