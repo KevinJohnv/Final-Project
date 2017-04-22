@@ -73,8 +73,8 @@ public class PishtiPane extends BorderPane {
 
         playerCards.setFont(new Font(20));
         compCards.setFont(new Font(20));
-        otherSide.getChildren().add(playerCards);
         otherSide.getChildren().add(compCards);
+        otherSide.getChildren().add(playerCards);
 
         setStyle("-fx-border-color: black; -fx-background-color: saddlebrown");
     }

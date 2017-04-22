@@ -77,10 +77,12 @@ public class PishtiGame extends Application {
                                         player.setScore(table.calcTablePoints());
                                         table.getTablePile().clear();
                                         pane.updatePile();
+                                        pane.playerCards.setText("Player: " + Integer.toString(player.getNumofCards()));
                                     }else if(playerWon == false){
                                         computer.setScore(table.calcTablePoints());
                                         table.getTablePile().clear();
                                         pane.updatePile();
+                                        pane.compCards.setText("Computer: " + Integer.toString(Main.computer.getNumofCards()));
                                     }
                                     String playerScore =  Integer.toString(player.getScore());
                                     String compScore = Integer.toString(computer.getScore());
