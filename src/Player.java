@@ -12,7 +12,6 @@ public class Player {
         setPlayerDeck(playerDeck);
     }
 
-    // Setters *****************************************************************************************************
     public void setPlayerDeck(ArrayList<Integer> givenDeck){
         playerDeck = givenDeck;
     }
