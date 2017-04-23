@@ -12,10 +12,7 @@ public class Table {
         tablePile = givenCards;
     }
 
-    public void setTable(){
-        tablePile.clear();
-        tableScore = 0;
-    }
+
 
     public ArrayList<Integer> getTablePile(){
         return tablePile;
@@ -35,10 +32,10 @@ public class Table {
 
         if (tablePile.size()==2){
             if(tablePile.get(tablePile.size()-1)%13 == 11 && tablePile.get(tablePile.size()-2)%13 == 11){
-                System.out.println("JACK PISHTI!");
+
                 tableScore = tableScore+20;
             } else if (tablePile.get(tablePile.size()-1)%13  == tablePile.get(tablePile.size()-2)%13 ){
-                System.out.println("PISHTI");
+
                 tableScore = tableScore+10;
             }
         }
@@ -62,7 +59,7 @@ public class Table {
 
     public boolean win(){
         if(tablePile.size() > 1) {
-            //System.out.println(tablePile.size());
+
             if (tablePile.get(tablePile.size() - 1) % 13 == tablePile.get(tablePile.size() - 2) % 13 || tablePile.get(tablePile.size() - 1) % 13 == 11) {
                 return true;
             } else {

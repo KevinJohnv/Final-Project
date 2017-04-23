@@ -83,32 +83,7 @@ public class Main {
             }else if(compDeck.size() == 0 && deck.numberOfCards()==0){
 
             }
-            printGameInfo(deck,player,playerDeck,computer,compDeck,table,tableDeck);
 
-            System.out.println("Enter a command\n1 - How many card are in the deck, Player's hand, table, and Computer's hand\n" +
-                    "2 - What are the IDs of the Player's cards\n3 - What are the ID's of the Computer's hand\n4 - What are the IDS of the cards on the Table" +
-                    "\n5 - exit the program\n6 - Play a card from player\n7 - See players points\n************************************************************************************\n");
-
-            int commandInput = scan.nextInt();
-
-            if (commandInput == 1) {
-                System.out.println("\n************************************************************************************\n" + "Deck - " + deck.numberOfCards() + "\nPlayer - " + player.getSize() + "\nComputer - " + computer.size() +
-                        "\nTable - " + tableDeck.size() + "\n************************************************************************************\n");
-            } else if (commandInput == 2) {
-                System.out.println("\n************************************************************************************\n" + "The player's hand consist of" + player.getPlayerDeck() + "\n************************************************************************************\n");
-            } else if (commandInput == 3) {
-                System.out.println("\n************************************************************************************\n" + "The computer's hand consits of " + compDeck + "\n************************************************************************************\n");
-            } else if (commandInput == 4) {
-                System.out.println("\n************************************************************************************\n" + "The table's hand consits of " + tableDeck + "\n************************************************************************************\n");
-            } else if (commandInput == 5) {
-                System.out.println("GoodBye :^)");
-                rerun = false;
-            } else if (commandInput == 6) {
-                rerun = playerTurn(playerDeck, player, table);
-
-            }else if (commandInput == 7){
-                System.out.println(player.getScore());
-            }
         }
 
 
@@ -119,7 +94,7 @@ public class Main {
     }
 
     public static boolean playerTurn(ArrayList<Integer> playerDeck, Player player, Table table) {
-        System.out.println("Select a card  to play. Enter 1 - "+playerDeck.size()+" to play a card, or hit 5 to see all your cards");
+
 
         // This section allows the player to play a card depending one which one is selected
         int commandInput;
@@ -129,7 +104,7 @@ public class Main {
             commandInput = scan.nextInt();
 
             if (commandInput == 5) {
-                printDeck(playerDeck);
+
             } else if (commandInput < 5 && commandInput>0) {
                 playCard(commandInput, player, playerDeck, table);
                 myTurn = false;
@@ -142,15 +117,15 @@ public class Main {
     public static void playCard(int i, Player player, ArrayList<Integer> playerDeck, Table table){
         if (player instanceof Computer) {
             Integer cardPlayed = player.playCard(i);
-            System.out.println("You are playing cardID number " + cardPlayed);
+
             table.addCardToTable(cardPlayed);
         } else {
             Integer cardPlayed = player.playCard(i);
-            System.out.println("You are playing cardID number " + cardPlayed);
-            playerDeck = player.getPlayerDeck();
+
+
             table.addCardToTable(cardPlayed);
         }
-        //System.out.println("Player: " + Integer.toString(player.getScore()) + " Computer: " + Integer.toString(computer.getScore()));
+
     }
 
     public static void giveCards (ArrayList playerDeck,Deck deck, Player player){
@@ -161,94 +136,15 @@ public class Main {
         }
     }
 
-    public static void printDeck(ArrayList<Integer> deck){
-        System.out.print("[");
-        for(int i = 0; i< deck.size()-1;i++){
-            if(deck.get(i) == 36){
-                System.out.print("10\u2666,");
-            }else if(deck.get(i) == 41){
-                System.out.print("2\u2663,");
-            }else {
-                switch (deck.get(i) % 13) {
-                    case 0:
-                        System.out.print("K,");
-                        break;
-                    case 1:
-                        System.out.print("A,");
-                        break;
-
-                    case 11:
-                        System.out.print("J,");
-                        break;
-
-                    case 12:
-                        System.out.print("Q,");
-                        break;
 
 
-                    default:
-                        System.out.print(deck.get(i) % 13 + ",");
-                        break;
-
-                }
-            }
-        }
-
-        if(deck.size() != 0) {
-            if((deck.get(deck.size()-1)) == 36){
-                System.out.print("10\u2666");
-            }else if((deck.get(deck.size()-1)) == 41){
-                System.out.print("2\u2663");
-            }else{
-                switch (deck.get(deck.size() - 1) % 13) {
-                    case 0:
-                        System.out.print("K");
-                        break;
-                    case 1:
-                        System.out.print("A");
-                        break;
-
-                    case 11:
-                        System.out.print("J");
-                        break;
-
-                    case 12:
-                        System.out.print("Q");
-                        break;
 
 
-                    default:
-                        System.out.print(deck.get(deck.size() - 1) % 13);
-                        break;
-                }
-            }
-        }
-        System.out.print("]");
-    }
-
-    public static void printGameInfo(Deck deck, Player player, ArrayList playerDeck, Computer computer, ArrayList compDeck, Table table, ArrayList tableDeck){
-        System.out.print(
-                "\n************************************************************************************\n" +
-                        "Deck - #Cards: " +  deck.numberOfCards() +" Cards in Deck:");
-        printDeck(deck.returnDeck());
-        System.out.print("\nPlayer - #Cards: " + player.getSize() +" Cards: ");
-        printDeck(playerDeck);
-        System.out.print(" Score: "+player.getScore());
-        System.out.print("\nComputer - #Cards: " + computer.size() +" Cards: ");
-        printDeck(compDeck);
-        System.out.print(" Score: "+computer.getScore());
-        System.out.print("\nTable - #Cards: " + tableDeck.size() +" Cards: ");
-        printDeck(tableDeck);
-        System.out.print(" Score: "+table.calcTablePoints());
-        System.out.println(
-                "\n************************************************************************************\n");
-
-        }
 
     public static ArrayList<Integer> DeckDeal(ArrayList<Integer> tableDeck){
         if((deck.returnDeck().get(3))%13  == 11){
             deck.shuffle();
-            System.out.println("Deck Deal Activitaded");
+
             DeckDeal(tableDeck);
         }else{
             deck.deal(tableDeck);
