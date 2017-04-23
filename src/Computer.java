@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * Created by iSeeU on 4/10/17.
- */
 public class Computer extends Player {
     private ArrayList<Integer> compDeck;
 

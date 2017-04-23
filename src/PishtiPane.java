@@ -12,9 +12,6 @@ import javafx.scene.text.Text;
 
 import java.util.Random;
 
-/**
- * Created by HpUser on 4/18/2017.
- */
 public class PishtiPane extends BorderPane {
     StackPane pile = new StackPane();
     StackPane remainingDeck = new StackPane();

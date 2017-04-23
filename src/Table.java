@@ -1,10 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * Created by iSeeU on 4/8/17.
- *
- * Check if played card is a win or next players turn
- */
 public class Table {
     int tableScore = 0;
     private ArrayList<Integer> tablePile;

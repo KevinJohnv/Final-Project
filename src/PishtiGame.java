@@ -12,9 +12,6 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 
-/**
- * Created by HpUser on 4/18/2017.
- */
 public class PishtiGame extends Application {
 
     private boolean playerWon;
@@ -45,7 +42,6 @@ public class PishtiGame extends Application {
                                 if (pane.playerHand.getChildren().contains(n)) {
                                     Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
                                     pane.pile.getChildren().add(pane.pile.getChildren().size(), n);
-                                    System.out.println("Player: " + Integer.toString(player.getScore())+" "+player.getNumofCards() + " Computer: " + Integer.toString(computer.getScore()) +" "+ computer.getNumofCards());
                                     if (table.win()) {
                                         if (firstPileWin) {
                                             for (int j = 0; j < 3; j++) {
@@ -139,7 +135,6 @@ public class PishtiGame extends Application {
                         pane.compHand.getChildren().indexOf(k)) + ".png"));
                 Main.playCard(pane.compHand.getChildren().indexOf(k), Main.computer, Main.computer.getCompDeck(), Main.table);
                 pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
-                System.out.println("Player: " + Integer.toString(Main.player.getScore()) + " Computer: " + Integer.toString(Main.computer.getScore()));
                 if (Main.table.win()){
                     firstPileWin = false;
                     Main.computer.setScore(Main.table.calcTablePoints()) ;

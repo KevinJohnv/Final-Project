@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by iSeeU on 4/6/17.
- */
 public class Deck {
     private ArrayList<Integer> myDeck = new ArrayList<Integer>();
 
@@ -22,7 +19,6 @@ public class Deck {
             myDeck.remove(0);
             myDeck.trimToSize();
         }
-
         return deckName;
     }
 
