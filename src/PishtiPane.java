@@ -110,16 +110,8 @@ public class PishtiPane extends BorderPane {
             rotate(card);
         }
     }
-    public void winsfirstcards(boolean x) {
-        Node n = new ImageView(new Image("card/" + Main.table.getTablePile().get(0) + ".png"));
-        Node y = new ImageView(new Image("card/" + Main.table.getTablePile().get(1) + ".png"));
-        Node z = new ImageView(new Image("card/" + Main.table.getTablePile().get(2) + ".png"));
-        if (x = true) {
-            otherSide.getChildren().addAll(n, y, z);
-
 
 
         }
-    }
-}
+
 

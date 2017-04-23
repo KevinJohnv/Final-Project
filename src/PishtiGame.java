@@ -56,6 +56,8 @@ public class PishtiGame extends Application {
                                             }
                                             firstPileWin = false;
                                         }
+
+
                                         player.setScore(table.calcTablePoints());
                                         player.setNumOfCardsInPile(table.getTablePile().size());
                                         pane.playerCards.setText("Player: " + Integer.toString(player.getNumofCards()));
@@ -63,6 +65,14 @@ public class PishtiGame extends Application {
                                         table.tableScore = 0;
                                         pane.updatePile();
                                         playerWon = true;
+                                        Node x = new ImageView(new Image("card/b2fv.png"));
+
+                                        pane.pile.getChildren().add(x);
+
+                                        PathTransition pt = new PathTransition(Duration.millis(1000),
+                                                new Line(40, 40, 1000, 600),x);
+                                        pt.setCycleCount(1);
+                                        pt.play();
                                     }
                                     n.requestFocus();
                                     pane.playerHand.getChildren().remove(n);
@@ -99,6 +109,7 @@ public class PishtiGame extends Application {
                                         player.setNumOfCardsInPile(table.getTablePile().size());
                                         table.getTablePile().clear();
                                         pane.updatePile();
+
                                         pane.playerCards.setText("Player: " + Integer.toString(player.getNumofCards()));
                                     }else if(!playerWon){
                                         computer.setScore(table.calcTablePoints());
@@ -162,7 +173,7 @@ public class PishtiGame extends Application {
                 }
                 pane.compHand.getChildren().remove(k);
                 pane.rotate(newCard);
-                PathTransition pt = new PathTransition(Duration.millis(1000),
+                PathTransition pt = new PathTransition(Duration.millis(2000),
                         new Line(50, -120, 40, 40), newCard);
                 pt.setCycleCount(1);
                 pt.play();
