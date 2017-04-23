@@ -1,27 +1,11 @@
 import java.util.ArrayList;
 
-/**
- * Created by iSeeU on 4/8/17.
- * Needed Methods
- *  - Setters
- *    # setNumOfCards
- *    # setScore
- *    # setPlayerDeck
- *
- *  - Getters
- *    # getSize
- *    # getPlayerDeck
- *    * getPoints
- *    * getNumOfCards
- *
- */
 public class Player {
     private ArrayList<Integer> playerDeck;
     private int count = 0;
     private int score = 0;
 
     public Player(){
-
     }
 
     public Player(ArrayList<Integer> playerDeck){
@@ -34,17 +18,13 @@ public class Player {
     }
 
     public void setNumOfCardsInPile(Integer numOfCards){
-        // This counts the amount of cards the player has won
         count = count + numOfCards;
     }
-
-
 
     public void setScore(Integer score){
         this.score = this.score+score;
     }
 
-   // Getters *****************************************************************************************************
     public int getScore(){
         return score;
     }
@@ -61,7 +41,6 @@ public class Player {
         return playerDeck;
     }
 
-    // Special Methods *****************************************************************************************************
     public Integer playCard(int selectedCard){
         if (this instanceof Computer) {
             int cardNumber = this.getPlayerDeck().get(selectedCard);
