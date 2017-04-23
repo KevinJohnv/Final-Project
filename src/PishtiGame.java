@@ -153,7 +153,7 @@ public class PishtiGame extends Application {
                 }
                 pane.compHand.getChildren().remove(k);
                 pane.rotate(newCard);
-                PathTransition pt = new PathTransition(Duration.millis(2000),
+                PathTransition pt = new PathTransition(Duration.millis(1500),
                         new Line(50, -120, 40, 40), newCard);
                 pt.setCycleCount(1);
                 pt.play();
