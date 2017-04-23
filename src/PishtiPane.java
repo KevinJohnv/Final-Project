@@ -71,6 +71,9 @@ public class PishtiPane extends BorderPane {
 
         playerCards.setFont(new Font(20));
         compCards.setFont(new Font(20));
+        Text label = new Text("Number of Cards");
+        label.setFont(new Font(15));
+        otherSide.getChildren().add(label);
         otherSide.getChildren().add(compCards);
         otherSide.getChildren().add(playerCards);
 

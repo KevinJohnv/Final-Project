@@ -36,8 +36,8 @@ public class PishtiGame extends Application {
                         for (int i = 0; i < Main.player.getPlayerDeck().size(); i++) {
                             Node n = pane.playerHand.getChildren().get(i);
                             n.setOnMouseClicked(e -> {
-                                if (pane.otherSide.getChildren().size() > 2) {
-                                    pane.otherSide.getChildren().remove(2,5);
+                                if (pane.otherSide.getChildren().size() > 3) {
+                                    pane.otherSide.getChildren().remove(3,6);
                                 }
                                 if (pane.playerHand.getChildren().contains(n)) {
                                     Main.playCard(pane.playerHand.getChildren().indexOf(n), player, playerDeck, table);
@@ -105,15 +105,15 @@ public class PishtiGame extends Application {
                                     String playerScore =  Integer.toString(player.getScore());
                                     String compScore = Integer.toString(computer.getScore());
                                     if(player.getScore() > computer.getScore()){
-                                        Text win = new Text("You Win! :D\nYour Score:"+playerScore+"\nComputer Score:"+compScore);
+                                        Text win = new Text("You Win!\nYour Score:"+playerScore+"\nComputer Score:"+compScore);
                                         win.setFont(new Font(47));
                                         pane.pile.getChildren().add(win);
                                     } else if(player.getScore() < computer.getScore()){
-                                        Text win = new Text("You Lose! D;\nYour Score:"+playerScore+"\nComputer Score:"+compScore);
+                                        Text win = new Text("You Lose!\nYour Score:"+playerScore+"\nComputer Score:"+compScore);
                                         win.setFont(new Font(47));
                                         pane.pile.getChildren().add(win);
                                     }else{
-                                        Text win = new Text("Draw...\nYour Score:"+playerScore+"\nComputer Score:"+compScore);
+                                        Text win = new Text("Draw!\nYour Score:"+playerScore+"\nComputer Score:"+compScore);
                                         win.setFont(new Font(47));
                                         pane.pile.getChildren().add(win);
                                     }
