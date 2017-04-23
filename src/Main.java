@@ -246,12 +246,12 @@ public class Main {
         }
 
     public static ArrayList<Integer> DeckDeal(ArrayList<Integer> tableDeck){
-        deck.deal(tableDeck);
-        if(tableDeck.get(tableDeck.size() -1)%13  != 11){
-
-        }else{
+        if((deck.returnDeck().get(3))%13  == 11){
             deck.shuffle();
+            System.out.println("Deck Deal Activitaded");
             DeckDeal(tableDeck);
+        }else{
+            deck.deal(tableDeck);
         }
         return tableDeck;
     }
