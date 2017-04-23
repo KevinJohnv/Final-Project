@@ -170,6 +170,14 @@ public class PishtiGame extends Application {
                     pane.updatePile();
                     Main.computer.getScore();
                     playerWon = false;
+                    Node x = new ImageView(new Image("card/b2fv.png"));
+
+                    pane.pile.getChildren().add(x);
+
+                    PathTransition pt = new PathTransition(Duration.millis(1000),
+                            new Line(40, 40, 1000, -520),x);
+                    pt.setCycleCount(1);
+                    pt.play();
                 }
                 pane.compHand.getChildren().remove(k);
                 pane.rotate(newCard);
