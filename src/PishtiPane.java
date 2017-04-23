@@ -77,7 +77,6 @@ public class PishtiPane extends BorderPane {
         otherSide.getChildren().add(compCards);
         otherSide.getChildren().add(playerCards);
 
-
         setStyle("-fx-border-color: black; -fx-background-color: saddlebrown");
     }
 
@@ -110,8 +109,6 @@ public class PishtiPane extends BorderPane {
             rotate(card);
         }
     }
-
-
-        }
+}
 
 
