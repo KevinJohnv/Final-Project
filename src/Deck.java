@@ -6,7 +6,6 @@ public class Deck {
 
     public Deck(){
         for(int i=0; i<52; i++) myDeck.add(1+i);
-        System.out.println(myDeck.size());
     }
 
     public void shuffle(){
