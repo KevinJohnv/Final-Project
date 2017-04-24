@@ -32,16 +32,11 @@ public class Main {
     }
 
     public static void playCard(int i, Player player, ArrayList<Integer> playerDeck, Table table){
-        if (player instanceof Computer) {
-            Integer cardPlayed = player.playCard(i);
-
-            table.addCardToTable(cardPlayed);
-        } else {
             Integer cardPlayed = player.playCard(i);
 
 
             table.addCardToTable(cardPlayed);
-        }
+
     }
 
     public static void giveCards (ArrayList playerDeck,Deck deck, Player player){

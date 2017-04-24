@@ -20,23 +20,5 @@ public class Computer extends Player {
         return getCompDeck();
     }
 
-
-
-    public void computerplay(ArrayList<Integer> tablePile, Table table)
-    {
-        boolean hasmatch=false;
-        for(int x = 0;x<compDeck.size();x++) {
-           if (compDeck.get(x)%13 == tablePile.get(tablePile.size())%13) {
-             Main.playCard(x,Main.computer, Main.computer.compDeck, Main.table);
-                hasmatch = true;
-                break;
-           }
-
-        }
-        if(!hasmatch && table.calcTablePoints() > 3)
-        {
-            Main.playCard(0, Main.computer, Main.computer.compDeck, Main.table);
-        }
-    }
 }
 // yes this is a test 
