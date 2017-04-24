@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-    private ArrayList<Integer> myDeck = new ArrayList<Integer>();
+    private ArrayList<Integer> myDeck = new ArrayList<>();
 
     public Deck(){
         for(int i=0; i<52; i++) myDeck.add(1+i);
