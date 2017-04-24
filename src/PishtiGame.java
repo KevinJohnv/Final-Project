@@ -130,6 +130,15 @@ public class PishtiGame extends Application {
     public void compPlay(PishtiPane pane) {
         for (int i = 0; i < Main.computer.size(); i++ ) {
             Node k = pane.compHand.getChildren().get(i);
+            if (!Main.table.getTablePile().isEmpty()) {
+                for (int j = 0; j < Main.computer.size(); j++) {
+                    if (Main.computer.getCompDeck().get(j) % 13 == 11 ||
+                            Main.computer.getCompDeck().get(j) % 13 == Main.table.getTablePile().get(Main.table.getTablePile().size() - 1) % 13) {
+                        k = pane.compHand.getChildren().get(j);
+                        break;
+                    }
+                }
+            }
             if (pane.compHand.getChildren().contains(k)) {
                 ImageView newCard = new ImageView(new Image("card/" + Main.computer.getCompDeck().get(
                         pane.compHand.getChildren().indexOf(k)) + ".png"));
