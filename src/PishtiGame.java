@@ -120,15 +120,15 @@ public class PishtiGame extends Application {
                                     String playerScore =  Integer.toString(player.getScore());
                                     String compScore = Integer.toString(computer.getScore());
                                     if(player.getScore() > computer.getScore()){
-                                        Text win = new Text("You Win!\nYour Score:"+playerScore+"\nComputer Score:"+compScore);
+                                        Text win = new Text("You Win!\nComputer Score:"+compScore+"\nYour Score:"+ playerScore);
                                         win.setFont(new Font(47));
                                         pane.pile.getChildren().add(win);
                                     } else if(player.getScore() < computer.getScore()){
-                                        Text win = new Text("You Lose!\nYour Score:"+playerScore+"\nComputer Score:"+compScore);
+                                        Text win = new Text("You Lose!\nComputer Score:"+compScore+"\nYour Score:"+ playerScore);
                                         win.setFont(new Font(47));
                                         pane.pile.getChildren().add(win);
                                     }else{
-                                        Text win = new Text("Draw!\nYour Score:"+playerScore+"\nComputer Score:"+compScore);
+                                        Text win = new Text("Draw!\nComputer Score:"+compScore+"\nYour Score:"+ playerScore);
                                         win.setFont(new Font(47));
                                         pane.pile.getChildren().add(win);
                                     }

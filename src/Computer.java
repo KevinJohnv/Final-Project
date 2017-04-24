@@ -1,22 +1,21 @@
 import java.util.ArrayList;
 
 public class Computer extends Player {
-    private ArrayList<Integer> compDeck;
 
     public Computer (ArrayList<Integer> givenDeck) {
-        compDeck = givenDeck;
+        this.setPlayerDeck(givenDeck);
     }
 
     public Integer size() {
-        return compDeck.size();
+        return this.getPlayerDeck().size();
     }
 
     public ArrayList<Integer> getCompDeck() {
-        return compDeck;
+        return super.getPlayerDeck();
     }
 
     @Override
     public ArrayList<Integer> getPlayerDeck() {
-        return getCompDeck();
+        return super.getPlayerDeck();
     }
 }
