@@ -97,12 +97,24 @@ public class PishtiGame extends Application {
                                         player.setNumOfCardsInPile(table.getTablePile().size());
                                         table.getTablePile().clear();
                                         pane.updatePile();
+                                        Node x = new ImageView(new Image("card/b2fv.png"));
+                                        pane.pile.getChildren().add(x);
+                                        PathTransition pt = new PathTransition(Duration.millis(1000),
+                                                new Line(40, 40, 1000, 600),x);
+                                        pt.setCycleCount(1);
+                                        pt.play();
                                         pane.playerCards.setText("Player: " + Integer.toString(player.getNumofCards()));
                                     }else if(!playerWon){
                                         computer.setScore(table.calcTablePoints());
                                         computer.setNumOfCardsInPile(table.getTablePile().size());
                                         table.getTablePile().clear();
                                         pane.updatePile();
+                                        Node x = new ImageView(new Image("card/b2fv.png"));
+                                        pane.pile.getChildren().add(x);
+                                        PathTransition pt = new PathTransition(Duration.millis(1000),
+                                                new Line(40, 40, 1000, -520),x);
+                                        pt.setCycleCount(1);
+                                        pt.play();
                                         pane.compCards.setText("Computer: " + Integer.toString(Main.computer.getNumofCards()));
                                     }
                                     String playerScore =  Integer.toString(player.getScore());
@@ -131,135 +143,47 @@ public class PishtiGame extends Application {
     }
 
     public void compPlay(PishtiPane pane) {
-        System.out.println("Available Comp: ");
-        for(int i = 0; i < Main.computer.size(); i++ ){
-            System.out.print((Main.computer.getPlayerDeck().get(i)%13)+", ");
-        }
-
-        Node k;
-
         for (int i = 0; i < Main.computer.size(); i++ ) {
-
-            // if same card is in stack
-            if(Main.computer.getCompDeck().get(i) == Main.table.getTablePile().get(Main.table.getTablePile().size()-1)) {
-                System.out.println("         // Top card on table matches one of the compure cards");
-                System.out.println("Found match. Computer's card :" + Main.computer.getCompDeck().get(i)+" Table card is: "+ Main.table.getTablePile().get(Main.table.getTablePile().size()-1));
-                 k = pane.compHand.getChildren().get(i);
-
-                if (pane.compHand.getChildren().contains(k)) {
-                    ImageView newCard = new ImageView(new Image("card/" + Main.computer.getCompDeck().get(
-                            pane.compHand.getChildren().indexOf(k)) + ".png"));
-
-                    System.out.println("\n Card Played "+((Main.computer.getCompDeck().get(
-                            pane.compHand.getChildren().indexOf(k))%13))+" "+k);
-
-                    Main.playCard(pane.compHand.getChildren().indexOf(k), Main.computer, Main.computer.getCompDeck(), Main.table);
-                    pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
-                    if (Main.table.win()){
-                        firstPileWin = false;
-                        Main.computer.setScore(Main.table.calcTablePoints()) ;
-                        Main.computer.setNumOfCardsInPile(Main.table.getTablePile().size());
-                        pane.compCards.setText("Computer: " + Integer.toString(Main.computer.getNumofCards()));
-                        Main.table.getTablePile().clear();
-                        Main.table.tableScore = 0;
-                        pane.updatePile();
-                        playerWon = false;
-                        Node x = new ImageView(new Image("card/b2fv.png"));
-                        pane.pile.getChildren().add(x);
-                        PathTransition pt = new PathTransition(Duration.millis(1000),
-                                new Line(40, 40, 1000, -520),x);
-                        pt.setCycleCount(1);
-                        pt.play();
+            Node k = pane.compHand.getChildren().get(i);
+            if (!Main.table.getTablePile().isEmpty()) {
+                for (int j = 0; j < Main.computer.size(); j++) {
+                    if (Main.computer.getCompDeck().get(j) % 13 == 11 ||
+                            Main.computer.getCompDeck().get(j) % 13 == Main.table.getTablePile().get(Main.table.getTablePile().size() - 1) % 13) {
+                        k = pane.compHand.getChildren().get(j);
+                        break;
                     }
-                    pane.compHand.getChildren().remove(k);
-                    pane.rotate(newCard);
-                    PathTransition pt = new PathTransition(Duration.millis(1500),
-                            new Line(50, -120, 40, 40), newCard);
-                    pt.setCycleCount(1);
-                    pt.play();
-                    return;
-                }
-
-            }
-            //if table points if the comp pile has a J
-            else if(Main.table.calcTablePoints() >= 6 && (Main.computer.getCompDeck().get(i)%13) == 11){
-
-                System.out.println("            //Points exceed 6 play J");
-                k = pane.compHand.getChildren().get(i);
-
-                if (pane.compHand.getChildren().contains(k)) {
-                    ImageView newCard = new ImageView(new Image("card/" + Main.computer.getCompDeck().get(
-                            pane.compHand.getChildren().indexOf(k)) + ".png"));
-
-                    System.out.println("\n Card Played "+((Main.computer.getCompDeck().get(
-                            pane.compHand.getChildren().indexOf(k))%13))+" "+k);
-
-                    Main.playCard(pane.compHand.getChildren().indexOf(k), Main.computer, Main.computer.getCompDeck(), Main.table);
-                    pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
-                    if (Main.table.win()){
-                        firstPileWin = false;
-                        Main.computer.setScore(Main.table.calcTablePoints()) ;
-                        Main.computer.setNumOfCardsInPile(Main.table.getTablePile().size());
-                        pane.compCards.setText("Computer: " + Integer.toString(Main.computer.getNumofCards()));
-                        Main.table.getTablePile().clear();
-                        Main.table.tableScore = 0;
-                        pane.updatePile();
-                        playerWon = false;
-                        Node x = new ImageView(new Image("card/b2fv.png"));
-                        pane.pile.getChildren().add(x);
-                        PathTransition pt = new PathTransition(Duration.millis(1000),
-                                new Line(40, 40, 1000, -520),x);
-                        pt.setCycleCount(1);
-                        pt.play();
-                    }
-                    pane.compHand.getChildren().remove(k);
-                    pane.rotate(newCard);
-                    PathTransition pt = new PathTransition(Duration.millis(1500),
-                            new Line(50, -120, 40, 40), newCard);
-                    pt.setCycleCount(1);
-                    pt.play();
-                    return;
                 }
             }
-
-
-        }
-
-        // If dont have same car nor table pilke is not worth then play
-        System.out.println("        // no match OR not worth 6 points");
-        k = pane.compHand.getChildren().get(0);
-            ImageView newCard = new ImageView(new Image("card/" + Main.computer.getCompDeck().get(
-                    pane.compHand.getChildren().indexOf(k)) + ".png"));
-
-            System.out.println("\n Card Played "+((Main.computer.getCompDeck().get(
-                    pane.compHand.getChildren().indexOf(k))%13))+" "+k);
-
-            Main.playCard(pane.compHand.getChildren().indexOf(k), Main.computer, Main.computer.getCompDeck(), Main.table);
-            pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
-            if (Main.table.win()){
-                firstPileWin = false;
-                Main.computer.setScore(Main.table.calcTablePoints()) ;
-                Main.computer.setNumOfCardsInPile(Main.table.getTablePile().size());
-                pane.compCards.setText("Computer: " + Integer.toString(Main.computer.getNumofCards()));
-                Main.table.getTablePile().clear();
-                Main.table.tableScore = 0;
-                pane.updatePile();
-                playerWon = false;
-                Node x = new ImageView(new Image("card/b2fv.png"));
-                pane.pile.getChildren().add(x);
-                PathTransition pt = new PathTransition(Duration.millis(1000),
-                        new Line(40, 40, 1000, -520),x);
+            if (pane.compHand.getChildren().contains(k)) {
+                ImageView newCard = new ImageView(new Image("card/" + Main.computer.getCompDeck().get(
+                        pane.compHand.getChildren().indexOf(k)) + ".png"));
+                Main.playCard(pane.compHand.getChildren().indexOf(k), Main.computer, Main.computer.getCompDeck(), Main.table);
+                pane.pile.getChildren().add(pane.pile.getChildren().size(), newCard);
+                if (Main.table.win()){
+                    firstPileWin = false;
+                    Main.computer.setScore(Main.table.calcTablePoints()) ;
+                    Main.computer.setNumOfCardsInPile(Main.table.getTablePile().size());
+                    pane.compCards.setText("Computer: " + Integer.toString(Main.computer.getNumofCards()));
+                    Main.table.getTablePile().clear();
+                    Main.table.tableScore = 0;
+                    pane.updatePile();
+                    playerWon = false;
+                    Node x = new ImageView(new Image("card/b2fv.png"));
+                    pane.pile.getChildren().add(x);
+                    PathTransition pt = new PathTransition(Duration.millis(1000),
+                            new Line(40, 40, 1000, -520),x);
+                    pt.setCycleCount(1);
+                    pt.play();
+                }
+                pane.compHand.getChildren().remove(k);
+                pane.rotate(newCard);
+                PathTransition pt = new PathTransition(Duration.millis(1500),
+                        new Line(50, -120, 40, 40), newCard);
                 pt.setCycleCount(1);
                 pt.play();
+                return;
             }
-            pane.compHand.getChildren().remove(k);
-            pane.rotate(newCard);
-            PathTransition pt = new PathTransition(Duration.millis(1500),
-                    new Line(50, -120, 40, 40), newCard);
-            pt.setCycleCount(1);
-            pt.play();
-            return;
-
+        }
     }
 
     public static void main(String[] args) {
