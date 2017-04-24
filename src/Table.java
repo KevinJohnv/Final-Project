@@ -3,27 +3,15 @@ import java.util.ArrayList;
 public class Table {
     int tableScore = 0;
     private ArrayList<Integer> tablePile;
-    public Table(ArrayList<Integer> givenCards){
+    public Table(ArrayList<Integer> givenCards) {
         tablePile = givenCards;
     }
 
-
-
-    public ArrayList<Integer> getTablePile(){
+    public ArrayList<Integer> getTablePile() {
         return tablePile;
     }
 
-    public Integer calcTablePoints(){
-       /*Each (11)J, (12)Q, (13)K, (10)10 . . . 1 point
-        Each (1)ace . . . 1 point
-        Club (41)2 . . . 2 points
-        Diamond (36)10 . . . 3 points
-        Majority of cards . . . 3 points
-        Each pişti . . . 10 points
-        Each J pişti . . . 20 points*/
-
-       /* ASK TEACHER ABOUT RULES*/
-
+    public Integer calcTablePoints() {
 
         if (tablePile.size()==2){
             if(tablePile.get(tablePile.size()-1)%13 == 11 && tablePile.get(tablePile.size()-2)%13 == 11){
@@ -34,7 +22,6 @@ public class Table {
                 tableScore = tableScore+10;
             }
         }
-        
 
         int cardCount = 0;
         while (cardCount < tablePile.size()){
@@ -52,7 +39,7 @@ public class Table {
         return tableScore;
     }
 
-    public boolean win(){
+    public boolean win() {
         if(tablePile.size() > 1) {
 
             if (tablePile.get(tablePile.size() - 1) % 13 == tablePile.get(tablePile.size() - 2) % 13 || tablePile.get(tablePile.size() - 1) % 13 == 11) {
@@ -66,11 +53,8 @@ public class Table {
         }
     }
 
-    public void addCardToTable(Integer newCard){
+    public void addCardToTable(Integer newCard) {
         tablePile.add(newCard);
 
     }
-
-
-
 }

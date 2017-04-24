@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 /*Kevin John*/
 
 public class Main {
@@ -8,8 +7,6 @@ public class Main {
     public static Table table;
     public static Deck deck;
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-
         // Initalize the deck and shuffle
         deck = new Deck();
         deck.shuffle();
@@ -31,30 +28,24 @@ public class Main {
         PishtiGame.main(null);
     }
 
-    public static void playCard(int i, Player player, ArrayList<Integer> playerDeck, Table table){
+    public static void playCard(int i, Player player, ArrayList<Integer> playerDeck, Table table) {
             Integer cardPlayed = player.playCard(i);
-
-
             table.addCardToTable(cardPlayed);
-
     }
 
     public static void giveCards (ArrayList playerDeck,Deck deck, Player player){
         if (player instanceof Computer) {
             computer.setPlayerDeck(deck.deal(computer.getCompDeck()));
-        } else {
+        } else
             player.setPlayerDeck(deck.deal(playerDeck));
-        }
     }
 
     public static ArrayList<Integer> DeckDeal(ArrayList<Integer> tableDeck){
         if((deck.returnDeck().get(3))%13  == 11){
             deck.shuffle();
-
             DeckDeal(tableDeck);
-        }else{
+        }else
             deck.deal(tableDeck);
-        }
         return tableDeck;
     }
 }
