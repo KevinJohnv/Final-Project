@@ -1,5 +1,7 @@
+import javafx.stage.Stage;
+
 import java.util.ArrayList;
-/*Kevin John*/
+// Kevin, Robert, Kyson
 
 public class Main {
     public static Player player;
@@ -25,7 +27,7 @@ public class Main {
         ArrayList<Integer> tableDeck = new ArrayList<>();
         table =new Table( DeckDeal(tableDeck));
 
-        PishtiGame.main(null);
+        //PishtiGame.main(null);
     }
 
     public static void playCard(int i, Player player, ArrayList<Integer> playerDeck, Table table) {
